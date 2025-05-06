@@ -12,6 +12,7 @@ int main()
  int shmid;
  char *shm_ptr;
  
+ //create shared memory
  shmid = shmget(SHM_KEY,1024 , 4567 | IPC_CREAT);
  shm_ptr = (char *)shmat(shmid, NULL, 0);
 
