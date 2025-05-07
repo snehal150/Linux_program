@@ -13,10 +13,10 @@ int main()
  char *shm_ptr;
  
  //create shared memory
- shmid = shmget(SHM_KEY,1024 , 4567 | IPC_CREAT);
+ shmid = shmget(SHM_KEY,1024 , 0666 | IPC_CREAT);
  shm_ptr = (char *)shmat(shmid, NULL, 0);
 
- // Step 2: Write to shared memory
+ // Step 3: Write to shared memory
  printf("Enter a message: ");
  fgets(shm_ptr, 1024, stdin);
  shm_ptr[strcspn(shm_ptr, "\n")] = 0;  // remove newline
